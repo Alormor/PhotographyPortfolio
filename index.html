@@ -38,7 +38,7 @@
 
     <section id="work">
         <h2>Featured Works</h2>
-        <div class="works">
+        <div class="work-grid">
             <div class="work-item">
                 <img src="images/work1.png" alt="work1">
             </div>
@@ -81,6 +81,80 @@
             </div>
         </div>
     </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <div class="contact-name">
+                <label for="name">Name:</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                required>
+            </div>
+
+            <div class="contact-surname">
+                <label for="surname">Surname:</label>
+                <input 
+                    type="text" 
+                    id="surname" 
+                    name="surname"
+                required>
+            </div>
+
+            <div class="contact-email">
+                <label for="email">Email:</label>
+                <input 
+                    type="text" 
+                    id="email" 
+                    name="email"
+                required>
+            </div>
+
+            <div class="contact-shoot-type">
+                <label for="shoot-type">Type of shoot:</label>
+                <select name="shoot-type" id="shoot-type">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Landscape</option>
+                    <option value="lifestyle">Lifestyle</option>
+                    <option value="event">Event</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="contact-message">
+                <label for="message">Message:</label>
+                <textarea 
+                    id="message" 
+                    name="message"
+                    rows="4"
+                required></textarea>
+            </div>
+            
+            <div class="contact-submit">
+                <input type="submit" value="Send Message">
+            </div>
+            
+        </form>
+    </section>
+
+
+    <footer id="footer">
+        <div class="footer-grid">
+            <div>
+                <p>Email: [EMAIL_ADDRESS]</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+            
+            <div class="social-media">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 Raffaella Mendes. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
