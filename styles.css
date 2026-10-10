@@ -9,7 +9,7 @@
 
 html{
     scroll-behavior: smooth;
-    scroll-padding-top: 12rem; /* matches the fixed header height */
+    scroll-padding-top: 5rem; 
 }
 
 :root{
@@ -212,17 +212,18 @@ header{
     height: 0.3rem;
 
     background-color: var(--accent);
-    margin: 0 auto 3rem auto;
+    margin: -4rem auto 4rem auto;
     opacity: 0.8;
 }
 
 #work{
+    margin-top: 5rem;
     width: 100%;
 }
 
 #work h2{
     text-align: center;
-    padding: 6rem 2rem 4rem;
+    padding: 6rem 2rem 6rem;
 
     font-family: var(--secondary-font);
     font-size: var(--font-size-xl);
