@@ -9,6 +9,7 @@
 
 html{
     scroll-behavior: smooth;
+    scroll-padding-top: 12rem; /* matches the fixed header height */
 }
 
 :root{
