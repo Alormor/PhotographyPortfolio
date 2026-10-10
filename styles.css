@@ -1,0 +1,105 @@
+/* Intial values */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    font-size: 62.5%;
+
+    /* VARIABLES */
+    /* Colors */
+    --background: #111111;
+    --surface: #1c1c1c;
+
+    --text: #f2f2f2;
+    --muted-text: #9a9a9a;
+    --accent: #d4a373;
+
+    /* Fonts */
+    --primary-font: 'Inter', sans-serif;
+    --secondary-font: 'Playfair Display', serif;
+    
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+/* HEADER */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 8rem;
+
+    background-color: var(--background);
+}
+
+.brand{
+    cursor: pointer;
+}
+
+.brand-link{
+    text-decoration: none;
+    color: var(--text);
+}
+
+.brand-name{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-name .first-name{
+    font-size: 2.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.brand-name .last-name{
+    font-size: 2.4rem;
+    color: var(--muted-text);
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+.nav-menu {
+    font-family: var(--secondary-font);   
+}
+
+.nav-menu ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 5rem;
+    list-style: none;
+}
+
+.nav-menu a{
+    text-decoration: none;
+    color: var(--text);
+    font-size: 2.2rem;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover{
+    color: var(--accent);
+}
