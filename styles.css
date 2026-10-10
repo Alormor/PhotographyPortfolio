@@ -26,7 +26,23 @@ html{
     /* Fonts */
     --primary-font: 'Inter', sans-serif;
     --secondary-font: 'Playfair Display', serif;
-    
+
+    --font-weight-normal: 300;
+    --font-weight-bold: 700;
+
+    /* Typography Scale (Sizes) */
+    --font-size-sm: 1.4rem;    /* small captions, last-name */
+    --font-size-base: 1.8rem;  /* body text, buttons */
+    --font-size-md: 2.4rem;    /* nav links, subtitles */
+    --font-size-lg: 2.8rem;    /* brand title */
+    --font-size-xl: 5.6rem;    /* hero headline */
+
+    /* Letter Spacing */
+    --spacing-tight: 0.05rem; /* subtle spacing on brand */
+    --spacing-normal: 0.15rem;/* uppercase accents */
+    --spacing-wide: 0.3rem;   /* descriptions, buttons */
+    --spacing-hero: 1.5rem;   /* editorial hero title */
+
 }
 
 body {
@@ -42,6 +58,7 @@ header{
     left: 0;
     right: 0;
     height: 12rem;
+    z-index: 1000;
 
     display: flex;
     flex-direction: row;
@@ -68,16 +85,16 @@ header{
 }
 
 .brand-name .first-name{
-    font-size: 2.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--spacing-tight);
 }
 
 .brand-name .last-name{
-    font-size: 2.4rem;
+    font-size: var(--font-size-md);
     color: var(--muted-text);
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: var(--spacing-normal);
 }
 
 .nav-menu {
@@ -96,10 +113,91 @@ header{
 .nav-menu a{
     text-decoration: none;
     color: var(--text);
-    font-size: 2.2rem;
+    font-size: var(--font-size-md);
     transition: color 0.2s ease;
 }
 
 .nav-menu a:hover{
     color: var(--accent);
+}
+
+/* HERO */
+.hero{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 12rem; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+.hero > img{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0.35;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-text{
+    position: relative;
+    z-index: 2;
+    
+    text-align: center;
+    max-width: 80rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-name{
+    font-family: var(--secondary-font);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--spacing-hero);
+}
+
+.hero-description{
+    font-size: var(--font-size-md);
+    color: var(--text);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--spacing-wide);
+}
+
+.hero-button{
+    margin-top: 1.5rem;
+    padding: 1.5rem 3.5rem;
+
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--spacing-wide);
+    text-transform: uppercase;
+
+    color: var(--background);
+    background-color: var(--accent);
+
+    border: none;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    transition: transform 0.5s ease, background-color 0.2s ease;
+}
+
+.hero-button:hover{
+    transform: translateY(-6px);
+    background-color: #e5b382;
 }
