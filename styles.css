@@ -201,3 +201,92 @@ header{
     transform: translateY(-6px);
     background-color: #e5b382;
 }
+
+/* WORK SECTION */
+#work h2::before{
+    content: '';
+    display: block;
+
+    width: 80%;
+    height: 0.3rem;
+
+    background-color: var(--accent);
+    margin: 0 auto 3rem auto;
+    opacity: 0.8;
+}
+
+#work{
+    width: 100%;
+}
+
+#work h2{
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+
+    font-family: var(--secondary-font);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--spacing-wide);
+
+    background-color: var(--background);
+}
+
+.work-grid{
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-auto-rows: min(36vh, 32rem);
+    grid-auto-flow: dense;
+    gap: 0;
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.work-item{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.work-item img{
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+    /* display: block; */
+    transition: transform 0.6s ease;
+}
+
+.work-item:hover img{
+    transform: scale(1.04);
+}
+
+/* --- Odd Rows: Left 70%, Right 30% --- */
+/* Big picture on the left */
+.work-item:nth-child(6n + 1){
+    grid-column: 1 / span 13;
+    grid-row: span 2;
+}
+
+/* Two small pictures stacked on the right */
+.work-item:nth-child(6n + 2),
+.work-item:nth-child(6n + 3){
+    grid-column: 14 / span 7;
+    grid-row: span 1;
+}
+
+/* --- Even Rows: 2 Left 30%, Right 70% --- */
+/* Two small pictures stacked on the left */
+.work-item:nth-child(6n + 4),
+.work-item:nth-child(6n + 5){
+    grid-column: 1 / span 7;
+    grid-row: span 1;
+}
+
+/* Big picture on the right */
+.work-item:nth-child(6n){
+    grid-column: 8 / span 13;
+    grid-row: span 2;
+}
