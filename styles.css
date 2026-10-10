@@ -205,7 +205,7 @@ header{
     border-radius: 0.5rem;
 
     cursor: pointer;
-    transition: transform 0.5s ease, background-color 0.2s ease;
+    transition: transform 0.3s ease, background-color 0.2s ease;
 }
 
 .hero-button:hover{
@@ -368,4 +368,110 @@ header{
 .about-content span{
     color: var(--accent);
     font-weight: var(--font-weight-bold);
+}
+
+/* CONTACT SECTION */
+#contact::before{
+    content: '';
+    position: absolute;
+
+    top: -6rem;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 80%;
+    height: 0.3rem;
+
+    background-color: var(--accent);
+    opacity: 0.8;
+}
+
+#contact{
+    position: relative;
+    width: 80%;
+
+    margin: 12rem auto 8rem auto; 
+    padding: 0 6rem 8rem; 
+
+    background-color: var(--surface);
+    border-radius: 1rem;
+}
+
+#contact form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.contact-message{
+    grid-column: 1 / -1;
+}
+
+.contact-submit{
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+/* Form inputs & typography */
+#contact label{
+    font-size: var(--font-size-base);
+    color: var(--text);
+    letter-spacing: var(--spacing-normal);
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact select,
+#contact textarea{
+    width: 100%;
+    padding: 1.4rem 1.6rem;
+
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+
+    color: var(--text);
+    background-color: var(--background);
+    border: 2px solid var(--muted-text);
+    border-radius: 0.5rem;
+
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact input:focus[type="text"],
+#contact input:focus[type="email"],
+#contact select:focus,
+#contact textarea:focus{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(212, 163, 115, 0.5);
+}
+
+#contact textarea{
+    resize: vertical;
+    min-height: 14rem;
+}
+
+#contact input[type="submit"]{
+    padding: 1.5rem 4rem;
+
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--spacing-wide);
+    text-transform: uppercase;
+    
+    color: var(--background);
+    background-color: var(--accent);
+    
+    border: none;
+    border-radius: 0.5rem;
+    
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+#contact input[type="submit"]:hover{
+    transform: translateY(-3px);
+    background-color: #e5b382;
 }
