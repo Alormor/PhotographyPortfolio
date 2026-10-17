@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkGallery from './components/WorkGallery'
+import About from './components/About'
 
 import './index.css'
 
@@ -12,6 +13,7 @@ function App() {
       <main>
         <Hero />
         <WorkGallery />
+        <About />
       </main>
     </div>
   )
