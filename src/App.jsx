@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import WorkGallery from './components/WorkGallery'
 import About from './components/About'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 import './index.css'
 
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Contact />
       </main>
+      <Footer />
     </div>
   )
 }
