@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkGallery from './components/WorkGallery'
 import About from './components/About'
+import Contact from './components/Contact'
 
 import './index.css'
 
@@ -14,6 +15,7 @@ function App() {
         <Hero />
         <WorkGallery />
         <About />
+        <Contact />
       </main>
     </div>
   )
