@@ -1,28 +1,11 @@
-import { useState, useEffect } from 'react'
-import { portfolioData } from '../data/portfolioData'
+import { useState } from 'react'
 import LikeToggle from './LikeToggle'
+import portfolioData from '../data/portfolioData.json'
 
 export default function WorkGallery() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [showLikedOnly, setShowLikedOnly] = useState(false)
-
-  // Initialize items from localStorage or fallback to portfolioData
-  const [items, setItems] = useState(() => {
-    const saved = localStorage.getItem('portfolio_items')
-    if (saved) {
-      try {
-        return JSON.parse(saved)
-      } catch (e) {
-        return portfolioData
-      }
-    }
-    return portfolioData
-  })
-
-  // Persist to localStorage whenever likes change
-  useEffect(() => {
-    localStorage.setItem('portfolio_items', JSON.stringify(items))
-  }, [items])
+  const [items, setItems] = useState(portfolioData)
 
   const categories = ['all', 'landscape', 'portrait', 'lifestyle', 'event']
 
@@ -105,7 +88,7 @@ export default function WorkGallery() {
               {/* Heart toggle */}
               <div className="absolute top-3 right-3 z-10">
                 <LikeToggle
-                  isLiked={item.liked}
+                  isLiked={Boolean(item.liked)}
                   onToggle={() => handleToggleLike(item.id)}
                 />
               </div>
