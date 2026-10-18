@@ -1,16 +1,32 @@
-# React + Vite
+# Clara Menéndez — Photography Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive photography portfolio web application rebuilt from scratch using **React**, **Vite**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Overview
 
-## React Compiler
+This project is a fictional editorial photography portfolio.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vite.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Icons**: [Font Awesome](https://fontawesome.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## ✨ Features
+
+- **Component Architecture**: Modular sections including `Header`, `Hero`, `WorkGallery`, `About`, `Contact`, and `Footer`.
+- **Centralized Data**: All gallery works and metadata are structured in a single data file (`src/data/portfolioData.js`).
+- **Interactive Multi-Filter (`useState`)**:
+  - Filter by shoot categories: *Landscape*, *Portrait*, *Lifestyle*, and *Event*.
+  - Combine category filters with a **Favorites** toggle to view saved photographs across any category.
+- **Controlled Like Component**: Reusable `LikeToggle` heart component for each portfolio item, following controlled component patterns with persistent state stored in `localStorage`.
+- **Mobile-First Responsive Design**: Tailored layout scales seamlessly from mobile screens to desktop with no horizontal overflow.
+- **Custom Design System**: Tailwind CSS v4 `@theme` integration using bespoke palette tokens (`--color-bg`, `--color-surface`, `--color-accent`) and Google Fonts (*Inter* & *Playfair Display*).
+
+---
