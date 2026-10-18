@@ -1,29 +1,62 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { portfolioData } from '../data/portfolioData'
+import LikeToggle from './LikeToggle'
 
 export default function WorkGallery() {
   const [activeCategory, setActiveCategory] = useState('all')
+  const [showLikedOnly, setShowLikedOnly] = useState(false)
+
+  // Initialize items from localStorage or fallback to portfolioData
+  const [items, setItems] = useState(() => {
+    const saved = localStorage.getItem('portfolio_items')
+    if (saved) {
+      try {
+        return JSON.parse(saved)
+      } catch (e) {
+        return portfolioData
+      }
+    }
+    return portfolioData
+  })
+
+  // Persist to localStorage whenever likes change
+  useEffect(() => {
+    localStorage.setItem('portfolio_items', JSON.stringify(items))
+  }, [items])
 
   const categories = ['all', 'landscape', 'portrait', 'lifestyle', 'event']
 
-  // Filter items
-  const filteredItems =
-    activeCategory === 'all'
-      ? portfolioData
-      : portfolioData.filter((item) => item.category === activeCategory)
+  // Toggle like for an item
+  const handleToggleLike = (id) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, liked: !item.liked } : item
+      )
+    )
+  }
+
+  // Filter by category AND liked
+  const filteredItems = items.filter((item) => {
+    const matchesCategory = activeCategory === 'all' || item.category === activeCategory
+    const matchesLiked = !showLikedOnly || item.liked
+    return matchesCategory && matchesLiked
+  })
+
+  // Count total liked
+  const totalLikedCount = items.filter((item) => item.liked).length
 
   return (
     <section id="work" className="w-full py-16 md:py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading with decorative line matching original */}
+        {/* Heading */}
         <div className="text-center mb-10">
-          <div className="w-24 h-0.5 bg-accent/80 mx-auto mb-6"></div>
+          <div className="w-full sm:w-250 h-0.5 bg-accent/80 mx-auto mb-6"></div>
           <h2 className="font-secondary text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-text">
             Works
           </h2>
         </div>
 
-        {/* Filter Controls (useState) */}
+        {/* Categories Filter */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
           {categories.map((cat) => (
             <button
@@ -39,6 +72,20 @@ export default function WorkGallery() {
               {cat}
             </button>
           ))}
+
+          {/* Favourite Filter */}
+          <button
+            type="button"
+            onClick={() => setShowLikedOnly(!showLikedOnly)}
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm uppercase tracking-wider font-medium transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+              showLikedOnly
+                ? 'bg-red-500/20 text-red-400 border border-red-500/40 shadow-md scale-105'
+                : 'bg-surface text-muted hover:text-text hover:bg-neutral-800 border border-transparent'
+            }`}
+          >
+            <i className={`fa-heart ${showLikedOnly ? 'fa-solid text-red-500' : 'fa-regular'}`}></i>
+            <span>Favorites ({totalLikedCount})</span>
+          </button>
         </div>
 
         {/* Grid of Work Items */}
@@ -55,18 +102,22 @@ export default function WorkGallery() {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
+              {/* Heart toggle */}
+              <div className="absolute top-3 right-3 z-10">
+                <LikeToggle
+                  isLiked={item.liked}
+                  onToggle={() => handleToggleLike(item.id)}
+                />
+              </div>
+
               {/* Overlay with info */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-text font-medium text-sm sm:text-base">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs uppercase tracking-wider text-accent">
-                      {item.category}
-                    </p>
-                  </div>
-                </div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none">
+                <h3 className="text-text font-medium text-sm sm:text-base">
+                  {item.title}
+                </h3>
+                <p className="text-xs uppercase tracking-wider text-accent">
+                  {item.category}
+                </p>
               </div>
             </div>
           ))}
@@ -74,7 +125,9 @@ export default function WorkGallery() {
 
         {filteredItems.length === 0 && (
           <p className="text-center text-muted py-12">
-            No projects found in this category.
+            {showLikedOnly
+              ? `No favorites found in ${activeCategory === 'all' ? 'the portfolio' : activeCategory}. Click the heart icon on any photo to save it!`
+              : 'No projects found in this category.'}
           </p>
         )}
       </div>

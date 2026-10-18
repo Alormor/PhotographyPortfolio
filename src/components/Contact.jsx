@@ -26,7 +26,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading with decorative accent line */}
         <div className="text-center mb-12">
-          <div className="w-full sm:w-200 h-0.5 bg-accent/80 mx-auto mb-6"></div>
+          <div className="w-full sm:w-250 h-0.5 bg-accent/80 mx-auto mb-6"></div>
           <h2 className="font-secondary text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-text">
             Contact Me
           </h2>
