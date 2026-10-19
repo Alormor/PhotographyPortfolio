@@ -88,7 +88,7 @@ export default function WorkGallery() {
               {/* Heart toggle */}
               <div className="absolute top-3 right-3 z-10">
                 <LikeToggle
-                  isLiked={Boolean(item.liked)}
+                  isLiked={item.liked}
                   onToggle={() => handleToggleLike(item.id)}
                 />
               </div>
