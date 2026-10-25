@@ -33,7 +33,7 @@ export const initialWorkshops = [
     location: "Barcelona, Spain - Park Güell",
     price: 65,
     availableTickets: 12,
-    image: "/images/course-1.png"
+    image: "/images/workshop-1.png"
   },
   {
     title: "Editorial Portrait Workshop",
@@ -42,7 +42,7 @@ export const initialWorkshops = [
     location: "Barcelona, Spain - Studio Menéndez",
     price: 90,
     availableTickets: 8,
-    image: "/images/course-2.png"
+    image: "/images/workshop-2.png"
   },
   {
     title: "Gothic Quarter Photo Walk",
@@ -51,6 +51,6 @@ export const initialWorkshops = [
     location: "Barcelona, Spain - Gothic Quarter",
     price: 45,
     availableTickets: 15,
-    image: "/images/course-3.png"
+    image: "/images/workshop-3.png"
   }
 ];

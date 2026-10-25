@@ -1,11 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import LikeToggle from './LikeToggle'
-import portfolioData from '../data/portfolioData.json'
 
 export default function WorkGallery() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [showLikedOnly, setShowLikedOnly] = useState(false)
-  const [items, setItems] = useState(portfolioData)
+  const [items, setItems] = useState([])
+
+  // Fetch photos from the real PostgreSQL API
+  useEffect(() => {
+    async function fetchPhotos() {
+      try {
+        const res = await fetch('/api/photos')
+        if (!res.ok) throw new Error('Failed to fetch photos')
+        const data = await res.json()
+        setItems(data)
+      } catch (err) {
+        console.error('Error loading gallery photos:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPhotos()
+  }, [])
 
   const categories = ['all', 'landscape', 'portrait', 'lifestyle', 'event']
 
