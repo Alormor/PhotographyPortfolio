@@ -2,6 +2,8 @@
 
 A modern, full-stack photography portfolio built from scratch using **React 19**, **Tailwind CSS v4**, **Node.js/Express**, **Better Auth**, and **Drizzle ORM** with **PostgreSQL**.
 
+Live app running on Vercel: https://photography-portfolio-teal.vercel.app/
+
 ---
 
 ## 📸 Overview
